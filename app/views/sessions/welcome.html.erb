@@ -1,5 +1,5 @@
 <h1>Welcome to Song Builder </h1>
-<h2>Login or Sinup below to start creating songs</h2>
+<h2>Login or Signup below to start creating songs</h2>
 <% if logged_in? %>
     <h1>You are Logged In, <%= current_user.username %></h1>
     <%= button_to "log Out", '/session', method: :delete%>
