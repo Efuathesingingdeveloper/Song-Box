@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  song_id: 
+  part_id: 
+  count: 1
+
+two:
+  song_id: 
+  part_id: 
+  count: 1
