@@ -11,9 +11,12 @@ get '/songs/:id', to: 'songs#show', as: 'song'
 #create
 post '/songs', to:"song#create"
 #edit
-get '/songs/:id/edit', to:'songs#edit'
+get '/songs/:id/edit', to:'songs#edit', as "edit_song"
 #update
 patch '/songs/:id/edit', to: 'songs#update'
+#destroy
+delete '/songs/:id', to: 'song#destroy'
+
    post '/users', to: 'users#create'
 
    get 'welcome', to: 'sessions#welcome'

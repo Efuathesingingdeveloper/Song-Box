@@ -40,7 +40,7 @@ def index
       redirect_to @song
     else
       flash[:notice] = @song.errors.full_messages.join(" ")
-      redirect_to edit_sushi_path(@song)
+      redirect_to edit_song_path(@song)
     end
   end
 
