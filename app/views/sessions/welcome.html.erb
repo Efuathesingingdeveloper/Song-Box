@@ -5,7 +5,7 @@
     <%= button_to "log Out", '/session', method: :delete%>
     <%else%>
 
-<%= button_to "Login", '/login', method: :get%>
-<%= button_to "Sign Up", '/users/new', method: :get%>
-<%= button_to('Log in with Facebook!', '/auth/facebook') %>
+<%= link_to "Login", '/login', method: :get%>
+<%= link_to "Sign Up", '/users/new', method: :get%>
+<%= link_to('Log in with Facebook!', '/auth/facebook') %>
 <%end%>

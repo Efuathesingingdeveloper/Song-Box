@@ -5,7 +5,5 @@ class Song < ApplicationRecord
     acepts_nested_atttibutes_for :lyrics
     scope :search, -> (query) { where("LOWER(title) LIKE ?", "%#{query.downcase}%") }
     
-    def formated_time
-        self.created_at.strftime("%a, %e %b %Y %H:%M")
-      end
+   
 end

@@ -6,15 +6,19 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create(user_params)
+
+    @user = User.new(user_params)
+
+   if @user.save
    session[:user_id] = @user.id
-   @user.save
    redirect_to '/welcome'
+   else 
+    redirect_to '/welcome'
   end
+end
 
   private
-
   def user_params 
-    params.require(:user).permit(:username, :password)
+    params.require(:user).permit(:password, :email)
   end
 end
