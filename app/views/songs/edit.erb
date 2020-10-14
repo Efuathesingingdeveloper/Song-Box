@@ -6,9 +6,5 @@
     <div class="col-xs-8">
       <p> change your song here:</p>
       <br/>
-      <%= form_with model:@song, local::true do |form| %>
-        <%= form.text_field :title %>
-        <%= form.text_field :genre %>
-        <%= form.submit " update your song "%>
-        <% end %>
+      <%= render 'form', locals: {song_parts: @song} %> 
   </div>
