@@ -57,6 +57,6 @@ def index
   private
 
   def song_params
-    params.require(:song).permit(:title, :genre)
-  end
+    params.require(:song).permit(:title, :genre, parts_attributes:[:type, :verse, :chorus,:bridge])
+end
 end
