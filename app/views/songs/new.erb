@@ -3,9 +3,5 @@
   <div class="row">
     <div class="col-xs-8">
 
-      <%= form_with model:@song, local::true do |form| %>
-        <%= form.text_field :title %>
-        <%= form.text_field :genre %>
-        <%= form.submit "create a song "%>
-        <% end %>
+      <%= render 'form', locals: {song_parts: @song} %> 
         </div>

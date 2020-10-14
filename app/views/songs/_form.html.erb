@@ -1,0 +1,15 @@
+<%= form_with model:song_parts, local: :true do |form| %>
+    <%= form.label :title %>
+    <%= form.text_field :title, class: song_parts.errors.any? ? "custom_errors" : nil %>
+    <br>
+    <h4>song parts :</h4>
+    <%= form.fields_for :parts  do |p| %>
+      <%= p.label :title %>
+      <%= p.text_field :title %>
+      <%= p.label :genre %>
+      <%= p.number_field :genre %>
+    <% end %>
+    <br>
+    <%= form.submit%>
+  <% end %>
+  
