@@ -3,4 +3,11 @@ Hello Artsist ! The world is your canvas
 </h2>
 
 <h3 class="red-text">Title:<%= @song.title %></h3>
-<h4 class="green-text">Genre:<%= @song.genre %></h4>
+<h4 class="green-text">Genre:<%= @song.genre %></h4> <br>
+<h6>
+<%= button_to "Edit", edit_song_path(@song) %>
+</h6>
+<br>
+<h6>
+<%= button_to "Delete", "/songs/#{@song.id}", method: :delete, data: {confirm: "are you sure you would like to delete your song ?"}%>
+</h6>
