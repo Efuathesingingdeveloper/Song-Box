@@ -3,9 +3,9 @@
   <div class="row">
     <div class="col-xs-8">
 
-      <%= form_with songs_path do %>
-        <%= text_field_tag :title %>
-        <%= text_field_tag :genre %>
+      <%= form_with model:@song do |form| %>
+        <%= form.text_field :title %>
+        <%= form.text_field :genre %>
         <%= submit_tag "create a song "%>
         <% end %>
         </div>
