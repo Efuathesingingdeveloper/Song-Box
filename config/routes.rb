@@ -4,8 +4,12 @@ Rails.application.routes.draw do
    post 'login', to: 'sessions#create'
    #index
 get '/songs', to: 'songs#index'
+#new
+get 'songs/new', to: 'songs#new'
 #show
 get '/songs/:id', to: 'songs#show', as: 'song'
+#create
+post '/songs', to:"song#create"
 
    post '/users', to: 'users#create'
 
