@@ -10,6 +10,8 @@ get 'songs/new', to: 'songs#new'
 get '/songs/:id', to: 'songs#show', as: 'song'
 #create
 post '/songs', to:"song#create"
+#edit
+#update
 
    post '/users', to: 'users#create'
 

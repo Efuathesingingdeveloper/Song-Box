@@ -19,16 +19,15 @@ def index
 
   def create
     @song = Song.new(song_params)
-    # @song = Song.create(song_params)
-
     if @song.save
-      # redirect_to song_path(@song)
       redirect_to @song
     else
       flash[:notice] = @song.errors.full_messages.join(" ")
       redirect_to songs_new_path
     end
   end
+
+
 
   def edit
     @song = Song.find_by(id: params[:id])
@@ -58,6 +57,6 @@ def index
   private
 
   def song_params
-    params.require(:song).permit(:title)
+    params.require(:song).permit(:title, :genre)
   end
 end
