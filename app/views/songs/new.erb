@@ -3,4 +3,9 @@
   <div class="row">
     <div class="col-xs-8">
 
-      form_with
+      <%= form_with songs_path do %>
+        <%= text_field_tag :title %>
+        <%= text_field_tag :genre %>
+        <%= submit_tag "create a song "%>
+        <% end %>
+        </div>
