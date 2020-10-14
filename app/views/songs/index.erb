@@ -1,0 +1,18 @@
+<h1> Song List </h1>
+<% if flash[:notice]%>
+<div class="container">
+<div class="row">
+<div class="col-xs-6">
+<ul>
+<% @songs.each do |s| %>
+    <li> <%= link_to s.title, s.genre, songs_path%> </li> 
+    <% end %>
+</ul>
+
+<>
+<>
+<>
+<>
+<>
+<>
+<>

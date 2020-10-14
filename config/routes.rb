@@ -2,7 +2,10 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create,]
    get 'login', to: 'sessions#new'
    post 'login', to: 'sessions#create'
-
+   #index
+get '/songs', to: 'songs#index'
+#show
+get '/songs/:id', to: 'songs#show', as: 'song'
 
    post '/users', to: 'users#create'
 
