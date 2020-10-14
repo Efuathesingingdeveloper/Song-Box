@@ -10,6 +10,12 @@
   </head>
 
   <body>
+  <% if session[:current_user_id] %>
+  <nav>
+  Your Logged in !
+  <a href="/logout">Logout</a>
+  </nav>
+  <% end %>
   
     <%= yield %>
   </body>
