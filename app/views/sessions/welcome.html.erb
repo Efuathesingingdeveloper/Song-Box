@@ -4,8 +4,3 @@
     <h1>You are Logged In, <%= current_user.username %></h1>
     <%= button_to "log Out", '/session', method: :delete%>
     <%else%>
-
-<%= button_to "Login", '/login', method: :get%>
-<%= button_to "Sign Up", '/users/new', method: :get%>
-<%= button_to('Log in with Facebook!', '/auth/facebook') %>
-<%end%>

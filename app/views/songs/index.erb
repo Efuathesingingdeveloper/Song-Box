@@ -1,17 +1,11 @@
-<h1> Song List </h1>
-<div class="container">
-<div class="row">
-<div class="col-xs-6">
-<ul>
-<% @songs.each do |s| %>
-    <li> <%= link_to s.title, s.genre, song_path(s)%> </li> 
-    <% end %>
-</ul>
+<h2> Hello Artsist ! The world is your canvas </h2>
 
-<>
-<>
-<>
-<>
-<>
-<>
-<>
+<h3>
+<%= button_to "write a song", '/songs/new', method: :get%>
+<%= button_to "Edit", edit_song_path(@song) %>
+<%= button_to "Delete", "/songs/#{@song.id}", method: :delete, data: {confirm: "are you sure you would like to delete your song ?"}%>
+
+</h3>
+
+<%end%>
+    
