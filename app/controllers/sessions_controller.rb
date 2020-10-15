@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  skip_before_action :authorized, only: [:new, :create, :welcome]
+  # skip_before_action :authorized, only: [:new, :create, :welcome]
   
   def new
   
@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-     @user = User.find_by(username: params[:username])
+     @user = User.find_by(email: params[:email])
      if @user && @user.authenticate(params[:password])
       
         redirect_to '/welcome'
