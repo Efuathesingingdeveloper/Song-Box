@@ -1,8 +1,7 @@
 class LyricsController < ApplicationController
 
     def index
-        @lyris
-        
+        @song = Song.find_by(id: params[:song_id])
     end
   
   
