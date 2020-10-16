@@ -1,0 +1,11 @@
+<h1>Write a song !</h1>
+<%= render partial:'/errors', locals: {record: @song} %> 
+
+      <%= render 'form', locals: {song_parts: @song} %> 
+      <%= form_for @song do |f| %>
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+        <%= f.label :genre %>
+        <%= f.text_field :genre %>
+        <%= f.submit " Create and add lyrics" %>
+        <% end %>

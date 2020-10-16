@@ -12,7 +12,7 @@ class LyricsController < ApplicationController
     end
   
     def create
-        @song= Song.find_by(id: params[:lyric][:song_id])
+        @song = Song.find_by(id: params[:lyric][:song_id])
         @lyric = Lyric.new(lyric_params)
       if @lyric.save
         redirect_to song_lyrics_path(@lyric.song)

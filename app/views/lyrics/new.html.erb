@@ -1,0 +1,14 @@
+<h2> Add new lyrics to the song <i><%=@song.title %></i></h2>
+
+<%= render partial:'/errors', locals: {record: @lyric} %> 
+
+<%= form_for  @lyric do |l|
+    <%= l.label :part %>
+    <div><%= f.collection_select :part_id, Part.all, :id, :verse, :chorus, :bridge, prompt:true %></div>
+    <%= l.label :count %>
+   <div><%= l.number_field :count %></div>
+   <%= l.label :genre %>
+   <div> <%= l.text_area :genre %></div>
+   <%= l.hidden_field_tag :song_id, value: @song.id %>
+<%= f.submit %>
+    <% end %>
