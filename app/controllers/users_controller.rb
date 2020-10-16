@@ -11,9 +11,9 @@ class UsersController < ApplicationController
     
     if @user.save
       session[:user_id] = @user.id
-      redirect_to songs_path
+      redirect_to new_songs_path
    else 
-    redirect_to '/'
+    render :new
   end
 end
 
