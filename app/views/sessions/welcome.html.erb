@@ -3,4 +3,4 @@
 <% if logged_in? %>
     <h1>You are Logged In, <%= current_user.username %></h1>
     <%= button_to "log Out", '/session', method: :delete%>
-    <%else%>
+<%end%>

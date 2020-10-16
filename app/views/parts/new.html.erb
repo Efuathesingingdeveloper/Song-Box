@@ -1,0 +1,15 @@
+<h2> Add new parts to your lyrics <i><%=@song.title %></i></h2>
+
+<%= render partial:'/errors', locals: {record: @lyric} %> 
+
+<%= form_for  @part do |p|
+    <%= l.label :part %>
+    <div><%= f.collection_select :part_id, Part.all, :id, :verse, :chorus, :bridge, prompt:true %></div>
+    <%= l.label :verse %>
+   <div><%= l.text_area :chorus %></div>
+   <%= l.label :bridge %>
+   <div> <%= l.text_area :bridge %></div>
+   <%= l.hidden_field_tag :song_id, value: @song.id %>
+   <%= l.hidden_field_tag :lyric_id, value: @lyric.id %>
+<%= f.submit %>
+    <% end %>
