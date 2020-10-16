@@ -19,4 +19,5 @@ Rails.application.routes.draw do
       resources :lyrics, only: [:index, :new] 
 end
 resources :lyrics, only: :create
+get '/songs/search', to:'songs#search', as: songs_search_path
 end

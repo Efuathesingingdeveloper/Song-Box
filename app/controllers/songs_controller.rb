@@ -55,7 +55,10 @@ def index
   end
 
   private
-
+def search
+  @songs = Song.all
+  render :index
+end
   def song_params
     params.require(:song).permit(:title, :genre, parts_attributes:[:id,:type, :verse, :chorus,:bridge])
 end

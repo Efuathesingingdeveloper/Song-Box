@@ -1,6 +1,9 @@
 <h2> Hello Artsist ! The world is your canvas </h2>
 
 <h3>
+<%= link_to "Search", songs_search_path %>
+<%= link_to "All Songs", songs_path %>
+
 <%= button_to "write a song", '/songs/new', method: :get%>
 <%= button_to "Edit", edit_song_path(@song) %>
 <%= button_to "Delete", "/songs/#{@song.id}", method: :delete, data: {confirm: "are you sure you would like to delete your song ?"}%>
