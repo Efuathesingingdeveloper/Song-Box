@@ -1,6 +1,8 @@
 class SongsController < ApplicationController
+  before_action :require_login
+
 def index
-    @songs = Song.all
+    @songs = current_user.songs
   end
 
   def show
@@ -18,9 +20,9 @@ def index
   end
 
   def create
-    @song = Song.new(song_params)
+  @song = current_user.songs.build(song_params)
     if @song.save
-      redirect_to @song
+      redirect_to new_song_lyric_path(@song)
     else
       flash[:notice] = @song.errors.full_messages.join(" ")
       redirect_to songs_new_path

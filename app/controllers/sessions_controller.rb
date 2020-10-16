@@ -1,32 +1,23 @@
 class SessionsController < ApplicationController
   # skip_before_action :authorized, only: [:new, :create, :welcome]
   
-  def new
-  
-  end
 
-
-  def login
-    
-  end
 
   def create
      @user = User.find_by(email: params[:email])
      if @user && @user.authenticate(params[:password])
-      
-        redirect_to '/welcome'
+      session[:user_id] = @user.id
+      redirect_to songs_path
      else
-        redirect_to '/login', :notice => "login unsuccessful please try again !"
-     end
-    end 
-
-def welcome
-end 
+      @error =" please try again"
+      render :new
+      end
+  end 
 
 
 def destroy
-  reset_session
-  redirect_to '/welcome'
+ session.clear
+  redirect_to song_path
 end 
 
 private 

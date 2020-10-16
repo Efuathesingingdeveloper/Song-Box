@@ -1,9 +1,9 @@
 <h1>Login</h1>
-<% if flash[:notice] %>
-<h2 style="color:red;"><%= flash[:notice] %></h2>
-  <%end%>
+
+<p><i><%= @error %></i></p>
+
   
-   <%= form_with url:'/login' do %>
+   <%= form_tag %>
    <%= label_tag :email%>
    <%= text_field_tag :email %>
    <%= label_tag :password%>

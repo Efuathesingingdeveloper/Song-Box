@@ -2,7 +2,7 @@
 
 <h3>
 <%= link_to "Search", songs_search_path %>
-<%= link_to "All Songs", songs_path %>
+<%= link_to "Create a New Song ! ", new_song_path %>
 
 <%= button_to "write a song", '/songs/new', method: :get%>
 <%= button_to "Edit", edit_song_path(@song) %>

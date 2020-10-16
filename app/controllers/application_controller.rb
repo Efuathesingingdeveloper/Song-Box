@@ -5,13 +5,13 @@ helper_method :current_user
 helper_method :logged_in?
 
 def login(user)
-  session[:current_user_id] = @user.id
+  session[:user_id] = @user.id
 end
 
 private   
 def current_user    
     if session[:current_user_id]
-      @current_user = User.find(session[:current_user_id])  
+      @current_user = User.find(id: session[:user_id])  
     end
   end
 
@@ -19,7 +19,7 @@ def current_user
         !current_user.nil?  
     end
     
-    def authorized
+    def require_login
         redirect_to '/' unless logged_in?
      end
 end

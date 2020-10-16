@@ -1,9 +1,15 @@
 class LyricsController < ApplicationController
+  before_action :require_login
+  before_action :validate_song
 
-  
+
+  def index
+    get_song
+    
+    end
+  end 
     def new
-       get_songs
-       redirect_to songs_path if !@song
+       get_song
        @lyric = Lyric.new
     end
   
@@ -16,6 +22,7 @@ class LyricsController < ApplicationController
         render :new
       end
     end
+
   
     def update
         @song = Song.find_by(id: params[:lyric][:id])
@@ -31,9 +38,15 @@ class LyricsController < ApplicationController
           flash[:notice] = "Was unable to delete lyrics!"
           redirect_to @song
         end
-    private
-def get_songs
+
+
+ private
+def get_song
     @song = Song.find_by(id: params[:song_id])
+end 
+
+def validate_song
+  redirect_to songs_path  unless get_song 
 end 
 
 def lyric_params
