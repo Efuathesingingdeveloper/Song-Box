@@ -10,15 +10,15 @@
   </head>
 
   <body>
-  <% if session[:current_user_id] %>
+  <% if session[:user_id] %>
   <nav>
   Your Logged in !
   <a href="/logout">Logout</a>
   </nav>
-  <% end %>
+  <% else %>
 
 <%= button_to "Login", '/login', method: :get%>
-<%= button_to "Sign Up", '/users/new', method: :get%>
+<%= button_to "Sign Up", '/signup', method: :get%>
 <%= button_to('Log in with Facebook!', '/auth/facebook') %>
 <%end%>
   
