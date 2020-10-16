@@ -5,7 +5,6 @@ class LyricsController < ApplicationController
 
   def index
     redirect_if_request_invalid
-  
   end 
 
     def new
