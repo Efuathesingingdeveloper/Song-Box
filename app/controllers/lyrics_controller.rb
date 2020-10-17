@@ -9,7 +9,8 @@ class LyricsController < ApplicationController
 
     def new
           redirect_if_request_invalid
-       @lyric = Lyric.new
+       @part = part.find_by_id(params[:part_id])
+       @lyric = @part.lyrics.build
     end
   
     def create
@@ -24,6 +25,16 @@ class LyricsController < ApplicationController
     else
       redirect_to songs_path
     end
+    def show
+    
+      @part = Part.find_by_id(params[:part_id])
+      @lyric = Lyric.find(params[:id])
+  end
+
+  def edit
+    @lyric = lyric.find(params[:song_id])
+    @part = Part.find_by_id(params[:part_id])
+end
 
   
     def update

@@ -1,8 +1,8 @@
 class SongsController < ApplicationController
   before_action :require_login
 
-def index
-    @songs = current_user.songs
+  def index
+    @songs = Song.all
   end
 
   def show
@@ -20,13 +20,18 @@ def index
   end
 
   def create
-  @song = current_user.songs.build(song_params)
+  @song = Song.new(song_params)
     if @song.save
+      session[:user_id] = @user.id
       redirect_to new_song_lyric_path(@song)
     else
-      flash[:notice] = @song.errors.full_messages.join(" ")
-      redirect_to songs_new_path
+      render:new_song_lyric_path
     end
+  end
+
+def show
+    @song = Song.find(params[:id])
+    redirect_to '/' if !@song
   end
 
 

@@ -1,5 +1,5 @@
 <h1>Sign Up</h1>
-<%= render partial:'/errors', locals: {record: @user} %> 
+<%= render partial: '/errors', locals: { record: @user } %> 
 <%= form_with model:@user, url: signup_path, local: :true do |f|%>
   <%= f.label :Email%><br>
   <%= f.text_field :email%><br>

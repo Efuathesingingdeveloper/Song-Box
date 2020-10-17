@@ -1,0 +1,17 @@
+<h2> Hello Artsist ! The world is your canvas </h2>
+
+<h3>
+
+<%= link_to "Search", songs_search_path%>
+<%= link_to "Create a New Song!", new_song_path %>
+
+<%= button_to "write a song", '/songs/new', method: :get %>
+
+
+</h3>
+
+<%= @songs.each do |song|%>
+<%= song.label "Genre"%>
+ <%= song.text_field %>
+ <%end%>
+  
