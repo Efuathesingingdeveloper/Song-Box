@@ -1,24 +1,13 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Song Builder
+This is a CRUD app with RESTful Routes, corresponding controller actions, and the associated rendered views.
 
-Things you may want to cover:
+# How to Run
 
-* Ruby version
 
-* System dependencies
+Clone this app
+Run rails s
+open localhost:3000 on your browser and login /signup 
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Instructions
+type in a your song and genre and get started writing your songs ! this is basically a virtual song writing book !

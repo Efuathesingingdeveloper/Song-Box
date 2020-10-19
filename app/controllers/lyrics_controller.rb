@@ -25,6 +25,9 @@ class LyricsController < ApplicationController
     else
       redirect_to songs_path
     end
+  end 
+
+
     def show
     
       @part = Part.find_by_id(params[:part_id])
@@ -51,12 +54,12 @@ end
           flash[:notice] = "Was unable to delete lyrics!"
           redirect_to @song
         end
-
-
+      end 
+    end
  private
 
 def get_song
-    @song || = Song.find_by(id: params[:song_id])
+    @song  = Song.find_by(id: params[:song_id])
 end 
 
 def user_authorized?

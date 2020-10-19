@@ -14,6 +14,7 @@ def current_user
     end
   end
 
+  
     def logged_in?
         !!session[:user_id] 
     end

@@ -20,18 +20,15 @@ class SongsController < ApplicationController
   end
 
   def create
+    # @song = current_user.songs.build(song_params)
   @song = Song.new(song_params)
+  # @user_song= current_user.song
     if @song.save
-      session[:user_id] = @user.id
       redirect_to new_song_lyric_path(@song)
     else
-      render:new_song_lyric_path
+      flash[:notice] = @song.errors.full_messages.join(" ")
+      redirect_to new_song_path
     end
-  end
-
-def show
-    @song = Song.find(params[:id])
-    redirect_to '/' if !@song
   end
 
 
@@ -61,10 +58,7 @@ def show
     end
   end
 
-  def search
-    @songs = Song.all
-    render :index
-  end
+  
   private
   def song_params
     params.require(:song).permit(:title, :genre, parts_attributes:[:id,:type, :verse, :chorus,:bridge])
