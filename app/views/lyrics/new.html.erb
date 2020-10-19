@@ -1,4 +1,5 @@
-<h2> Add new lyrics to the song <i><%=@song.title %></i></h2>
+<h2> The lyrics to <%= @song.title %> </h2>
+<%= link_to "Add new lyrics", new_song_lyric_path(@song) %> 
 
 <%= form_for @lyrics do |f|%>
     <%= f.label :title%><br>
