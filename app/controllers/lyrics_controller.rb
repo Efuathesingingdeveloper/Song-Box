@@ -48,3 +48,4 @@ end
 def lyric_params
     params.require(:lyric).permit(:part_id, :count, :genre, :song_id)
 end
+end 

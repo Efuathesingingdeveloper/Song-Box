@@ -1,5 +1,5 @@
 class Lyric < ApplicationRecord
-    belongs_to :parts, :songs
+    belongs_to :songs
     validates_presence_of :count
     
     def people
