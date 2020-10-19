@@ -4,5 +4,6 @@
     <%= f.text_field :title%><br>
     <%= f.label :genre %><br>
     <%= f.text_field :genre %><br>
+    <%= f.hidden_field :user_id, value: current_user.id%>
     <%= f.submit%>
     <%end%>

@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2020_10_19_135126) do
     t.string "genre"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "user_id"
   end
 
   create_table "users", force: :cascade do |t|

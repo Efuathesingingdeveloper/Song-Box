@@ -2,11 +2,11 @@ class SongsController < ApplicationController
   before_action :require_login
 
   def index
-    @songs = Song.all
+    @songs = current_user.songs
   end
 
   def show
-    @song= Song.find_by(id: params[:id])
+    @song = Song.find_by(id: params[:id])
     if @song
       render :show
     else
@@ -17,21 +17,17 @@ class SongsController < ApplicationController
 
   def new
     @song = Song.new
+    
   end
 
   def create
-    # @song = current_user.songs.build(song_params)
-  @song = Song.new(song_params)
-  # @user_song= current_user.song
-    if @song.save
+    @song = current_user.songs.build(song_params)
+     if @song.save
       redirect_to new_song_lyric_path(@song)
     else
-      flash[:notice] = @song.errors.full_messages.join(" ")
-      redirect_to new_song_path
-    end
+      render: new
   end
-
-
+end
 
   def edit
     @song = Song.find_by(id: params[:id])
@@ -61,6 +57,6 @@ class SongsController < ApplicationController
   
   private
   def song_params
-    params.require(:song).permit(:title, :genre, parts_attributes:[:id,:type, :verse, :chorus,:bridge])
+    params.require(:song).permit(:title, :genre, :user_id)
 end
 end
