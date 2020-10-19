@@ -1,11 +1,24 @@
 <h2> Add new lyrics to the song <i><%=@song.title %></i></h2>
 
-
-<%= form_for @song do |f|%>
+<%= form_for @lyrics do |f|%>
     <%= f.label :title%><br>
     <%= f.text_field :title%><br>
     <%= f.label :genre %><br>
     <%= f.text_field :genre %><br>
+    <%= f.label :verse1 %><br>
+    <%= f.text_field :verse1%><br>
+    <%= f.label :verse2 %><br>
+    <%= f.text_field :verse2%><br>
+    <%= f.label :verse3 %><br>
+    <%= f.text_field :verse3%><br>
+    <%= f.label :verse4 %><br>
+    <%= f.text_field :verse4%><br>
+    <%= f.label :hook %><br>
+    <%= f.text_field :hook%><br>
+    <%= f.label :bridge %><br>
+    <%= f.text_field :bridge%><br>
+    <%= f.label :notes%><br>
+    <%= f.text_field :notes%><br>
     <%= f.hidden_field :user_id, value: current_user.id%>
     <%= f.submit%>
     <%end%>
