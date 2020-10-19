@@ -10,15 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_19_135126) do
+ActiveRecord::Schema.define(version: 2020_10_19_171224) do
 
-  create_table "lyrics", force: :cascade do |t|
-    t.string "song_id"
-    t.string "part_id"
-    t.integer "count"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
+# Could not dump table "lyrics" because of following StandardError
+#   Unknown type 'description' for column 'verse1'
 
   create_table "parts", force: :cascade do |t|
     t.string "type"
