@@ -6,8 +6,8 @@ class SessionsController < ApplicationController
   end 
   
   def create
-    if auth_hash = request.env["omniauth.auth"]
-      oauth_email = request.env["omniauth.auth"]["info"]["email"]
+    # if auth_hash = request.env["omniauth.auth"]
+    #   oauth_email = request.env["omniauth.auth"]["info"]["email"]
       @user = User.find_by(email: params[:email])
       if @user && @user.authenticate(params[:password])
         
@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
       render :new
       end
     end 
-  end 
+  # end 
 
   def welcome 
    
