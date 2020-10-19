@@ -1,16 +1,15 @@
 class LyricsController < ApplicationController
   before_action :require_login
-  before_action :get_song, only: [:index, :new]
+  # before_action :get_song, only: [:index, :new]
 
 
   def index
+    get_song
     redirect_if_request_invalid
   end 
 
     def new
-          redirect_if_request_invalid
-       @part = part.find_by_id(params[:part_id])
-       @lyric = @part.lyrics.build
+         get_song
     end
   
     def create

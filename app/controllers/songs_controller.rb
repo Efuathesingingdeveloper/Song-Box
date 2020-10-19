@@ -25,7 +25,7 @@ class SongsController < ApplicationController
      if @song.save
       redirect_to new_song_lyric_path(@song)
     else
-      render: new
+      render :new
   end
 end
 
