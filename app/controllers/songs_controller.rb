@@ -22,7 +22,7 @@ class SongsController < ApplicationController
 
   def create
     @song = current_user.songs.build(song_params)
-    byebug
+   
     flag = @song.save
      if flag
       redirect_to new_song_lyric_path(@song)
