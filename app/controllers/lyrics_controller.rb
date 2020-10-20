@@ -10,21 +10,22 @@ class LyricsController < ApplicationController
     def new
       redirect_if_request_invalid
       @lyric = Lyric.new
-        
     end
   
     def create
-        @song = Song.find_by(id: params[:lyric][:song_id])
-        if user_authorized?
-        @lyric = Lyric.new(lyric_params)
-      if @lyric.save
-        redirect_to song_lyrics_path(@lyric.song)
+      @song = Song.find_by_id(params[:song_id])
+      @lyric = Lyric.new
+      # byebug
+        # if user_authorized?
+        # @lyric = @song.lyrics.build(lyric_params)
+        if @lyric.save
+        redirect_to song_lyric_path(@song, @lyric)
       else
         render :new
       end
-    else
-      redirect_to songs_path
-    end
+    # else
+    #   redirect_to songs_path
+    # # end
   end 
 
 
@@ -46,6 +47,6 @@ def redirect_if_request_invalid
 end
 
 def lyric_params
-    params.require(:lyric).permit(:part_id, :count, :genre, :song_id)
+    params.require(:lyric).permit(:count, :verse1, :verse2, :verse3, :verse4, :hook, :bridge, :notes, :song_id)
 end
 end 

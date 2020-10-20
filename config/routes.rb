@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
    resources :parts, only: [:index, :create, :new]
    resources :songs do
-      resources :lyrics, only: [:index, :new] 
+      resources :lyrics
    end
    resources :lyrics, only: [:create]
    get '/songs/search', to:'songs#search'

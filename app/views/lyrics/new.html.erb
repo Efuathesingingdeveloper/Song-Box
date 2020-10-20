@@ -1,11 +1,8 @@
 <h2> The lyrics to <%= @song.title %> </h2>
 <%= link_to "Add new lyrics", new_song_lyric_path(@song) %> 
 
-<%= form_for @lyrics do |f|%>
-    <%= f.label :title%><br>
-    <%= f.text_field :title%><br>
-    <%= f.label :genre %><br>
-    <%= f.text_field :genre %><br>
+<%= form_for @lyric do |f|%>
+
     <%= f.label :verse1 %><br>
     <%= f.text_field :verse1%><br>
     <%= f.label :verse2 %><br>
