@@ -1,24 +1,4 @@
 <h2> The lyrics to <%= @song.title %> </h2>
 <%= link_to "Add new lyrics", new_song_lyric_path(@song) %> 
 
-<%= form_for @lyric do |f|%>
-
-    <%= f.label :verse1 %><br>
-    <%= f.text_field :verse1%><br>
-    <%= f.label :verse2 %><br>
-    <%= f.text_field :verse2%><br>
-    <%= f.label :verse3 %><br>
-    <%= f.text_field :verse3%><br>
-    <%= f.label :verse4 %><br>
-    <%= f.text_field :verse4%><br>
-    <%= f.label :hook %><br>
-    <%= f.text_field :hook%><br>
-    <%= f.label :bridge %><br>
-    <%= f.text_field :bridge%><br>
-    <%= f.label :notes%><br>
-    <%= f.text_field :notes%><br>
-    <%= f.hidden_field :user_id, value: current_user.id%>
-    <%= f.hidden_field :song_id, value: @song.id %>
-
-    <%= f.submit%>
-    <%end%>
+<%= render partial: 'form'%>

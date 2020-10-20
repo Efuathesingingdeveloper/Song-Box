@@ -5,7 +5,7 @@ class LyricsController < ApplicationController
 
   def index
     @song = Song.find_by_id(params[:lyric][:song_id].to_i)
-    byebug
+    # @lyrics = Lyric.all
     redirect_if_request_invalid
   end 
   
@@ -23,10 +23,10 @@ class LyricsController < ApplicationController
       if user_authorized?(@song)
         @lyric = @song.lyrics.build(lyric_params)
         
-         byebug
+        
       if @lyric.save!
-        # redirect_to song_lyric_path(@song, @lyric)
-        render :show
+        # redirect_to song_lyrics_path
+        render :index
       else
         render :new
       end
@@ -39,13 +39,20 @@ class LyricsController < ApplicationController
     render :show
   end 
 def edit
-end 
-def update 
-end 
-def delete 
-end 
+  @song = Song.find(params[:song_id])
+  @lyric = Lyric.find(params[:id])
 
+end
+def update
+  @song = Song.find(params[:song_id])
+  @lyric = Lyric.find(params[:id])
+  @lyric.update(lyric_params)
+  redirect_to song_lyrics_path
+end
+def destroy
+end
     
+
  private
 
 def get_song
@@ -53,13 +60,13 @@ def get_song
 end 
 
 def user_authorized?(song)
-  byebug
+ 
 return (song.user_id == current_user.id.to_s)
 
 end 
 
 def redirect_if_request_invalid
-  byebug
+  
   if @song.nil? || !user_authorized?(@song)
     redirect_to songs_path
   end 

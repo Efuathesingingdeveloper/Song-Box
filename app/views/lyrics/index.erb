@@ -1,11 +1,23 @@
  <h2> The lyrics to <%= @song.title %> </h2>
  <%= link_to "Add new lyrics", new_song_lyric_path(@song) %> 
 
- <% @song.lyrics.each do |lyric| %>
-<p><%= @song.title %></p>
-<p><%= lyric.count %></p>
-<p><%= lyric.part.verse %></p>
-<p><%= lyric.part.chorus%></p>
-<p><%= lyric.part.bridge %></p>
-    <% end %>
+ <h3><%=@song.title %></h3>
+ <%= @lyric.verse1 %>
+ <br>
+ <%= @lyric.verse2 %>
+ <br>
+ <%= @lyric.verse3 %>
+ <br>
+ <%= @lyric.verse4 %>
+ <br>
+ <%= @lyric.hook %>
+ <br>
+ <%= @lyric.bridge %>
+ <br>
+ <%= @lyric.notes %>
+
+ <%= button_to "Edit Song!", edit_song_lyric_path(@song, @lyric), method: :get %>
+
+ 
+
     
