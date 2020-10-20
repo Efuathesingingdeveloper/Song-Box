@@ -22,7 +22,9 @@ class SongsController < ApplicationController
 
   def create
     @song = current_user.songs.build(song_params)
-     if @song.save
+    byebug
+    flag = @song.save
+     if flag
       redirect_to new_song_lyric_path(@song)
     else
       render :new
@@ -57,6 +59,6 @@ end
   
   private
   def song_params
-    params.require(:song).permit(:title, :genre, :user_id)
+    params.require(:song).permit(:title, :genre, :user_id, :id)
 end
 end

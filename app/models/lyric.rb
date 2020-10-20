@@ -1,11 +1,5 @@
 class Lyric < ApplicationRecord
-    belongs_to :songs
-    validates_presence_of :count
+    belongs_to :songs, optional: true
     
-    def people
-        Lyric.all.each do |lyric|
-          lyric.count
-        end
-      end
-
+    
 end

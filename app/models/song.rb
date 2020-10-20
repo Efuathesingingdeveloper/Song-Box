@@ -3,6 +3,8 @@ class Song < ApplicationRecord
     belongs_to :user
     has_many :lyrics
     has_many :parts, through: :lyrics
+  
+
     # accepts_nested_attributes_for :lyrics
     scope :search, -> (query) { where("LOWER(name) LIKE ?", "%#{query.downcase}%") }
 
