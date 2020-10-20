@@ -13,7 +13,7 @@ Rails.application.routes.draw do
    
    delete '/logout', to: 'sessions#destroy'
    
-   get '/auth/facebook/callback' => 'sessions#create'
+   get '/auth/github/callback', to: 'sessions#create'
 
    resources :parts, only: [:index, :create, :new]
    resources :songs do
