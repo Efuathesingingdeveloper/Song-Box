@@ -4,7 +4,7 @@ class LyricsController < ApplicationController
 
 
   def index
-    @song = Song.find_by_id(params[:lyric][:song_id].to_i)
+    @song = Song.find_by_id(params[:lyric][:song_id])
     # @lyrics = Lyric.all
     redirect_if_request_invalid
   end 
@@ -15,7 +15,7 @@ class LyricsController < ApplicationController
     end
   
     def create
-      @song = Song.find_by_id(params[:lyric][:song_id].to_i)
+      @song = Song.find_by_id(params[:lyric][:song_id])
       redirect_if_request_invalid
     #   @lyric = Lyric.new
     #   byebug

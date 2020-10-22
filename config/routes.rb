@@ -20,5 +20,5 @@ Rails.application.routes.draw do
       resources :lyrics
    end
    resources :lyrics, only: [:create]
-   get '/songs/search', to:'songs#search'
+   get '/search', to: 'songs#search'
 end

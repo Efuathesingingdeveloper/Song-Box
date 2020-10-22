@@ -6,7 +6,7 @@ class SongsController < ApplicationController
   end
 
   def show
-    @song = Song.find_by(id: params[:id])
+    find_song
     if @song
       render :show
     else
@@ -32,11 +32,17 @@ class SongsController < ApplicationController
 end
 
   def edit
-    @song = Song.find_by(id: params[:id])
+    find_song
   end
 
+  def search
+    @songs = Song.search(params[:search])
+
+    render :index
+end
+
   def update
-    @song = Song.find_by(id: params[:id])
+    find_song
     @song.update(song_params)
     if @song.errors.empty?
       redirect_to @song
@@ -58,6 +64,9 @@ end
 
   
   private
+  def find_song 
+    @song = Song.find_by(id: params[:id])
+  end 
   def song_params
     params.require(:song).permit(:title, :genre, :user_id, :id)
 end

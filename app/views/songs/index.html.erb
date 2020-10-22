@@ -1,10 +1,20 @@
 <h2> Hello Artsist ! The world is your canvas </h2>
 
 <h3>
+<%= link_to " All Songs", songs_path %>
+<br>
 
-<%= link_to "Search", songs_search_path%>
+<%= link_to "Search", search_path%>
 <br>
 <%= link_to "Create a New Song!", new_song_path %>
-
+<br>
 </h3>
+<br>
+
+<%= form_tag("/search", :method => "get") do %>
+    <%= label_tag(:search, "Search:") %>
+    <%= text_field_tag(:search) %>
+    <%= submit_tag("search")%>
+    <% end %>
+
 

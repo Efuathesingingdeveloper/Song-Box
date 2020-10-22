@@ -8,7 +8,8 @@ class Song < ApplicationRecord
     # accepts_nested_attributes_for :lyrics
     scope :search, -> (query) { where("LOWER(name) LIKE ?", "%#{query.downcase}%") }
 
-   def self.search(query)
-    self.where("LOWER(name) LIKE ?", "%#{query.downcase}%")
-  end
+    def self.search(search)
+      
+      self.where("location LIKE ?", "%#{search}%")
+  end 
 end

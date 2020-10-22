@@ -21,7 +21,11 @@
 <%= button_to "Sign Up", '/signup', method: :get%>
 <%= button_to('Log in with Github!', '/auth/github') %>
 <%end%>
-  
+  <navbar>
+  <%= render 'layouts/navbar' %>
+  </navbar>
+  <main class ="wrapper">
     <%= yield %>
+    </main>
   </body>
 </html>

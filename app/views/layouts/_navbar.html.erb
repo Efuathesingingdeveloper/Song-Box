@@ -1,0 +1,18 @@
+<div class="header">
+    <div class="title"> </div>
+    <% if current_user %>
+    <div class"email">
+    <i>welcome, <%= current_user.email %></i>
+    </div>
+    <% end %>
+    <div class="nav">
+    <div><a href="/songs">Songs</a></div>
+    <% if logged_in? %>
+    <div><a href="/songs"> MY Songs</a></div>
+   
+
+    <% else %>
+   
+<% end %>
+    </div>
+</div>

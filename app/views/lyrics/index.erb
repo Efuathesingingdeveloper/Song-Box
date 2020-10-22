@@ -17,6 +17,8 @@
  <%= @lyric.notes %>
 
  <%= button_to "Edit Song!", edit_song_lyric_path(@song, @lyric), method: :get %>
+ <%= button_to " delete", edit_song_lyric_path(@song, @lyric), method: :destroy %>
+
 
  
 
