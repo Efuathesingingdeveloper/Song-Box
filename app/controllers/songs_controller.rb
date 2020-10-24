@@ -2,7 +2,7 @@ class SongsController < ApplicationController
   before_action :require_login
 
   def index
-    @songs = current_user.songs
+    @songs = Song.all
   end
 
   def show
@@ -53,7 +53,7 @@ end
   end
 
   def destroy
-    @song = Song.find_by(id: params[:id])
+   find_song
     if @song.destroy
       redirect_to song_path
     else

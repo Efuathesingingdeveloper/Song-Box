@@ -2,6 +2,26 @@
   Edit your lyrics!
 </h1>
 
-     
-      <%= render partial: 'form'%>
+<%= form_for [@song, @lyric], url: song_lyric_path, method: :patch do |f|%>
 
+  <%= f.label :verse1 %><br>
+    <%= f.text_field :verse1%><br>
+    <%= f.label :verse2 %><br>
+    <%= f.text_field :verse2%><br>
+    <%= f.label :verse3 %><br>
+    <%= f.text_field :verse3%><br>
+    <%= f.label :verse4 %><br>
+    <%= f.text_field :verse4%><br>
+    <%= f.label :hook %><br>
+    <%= f.text_field :hook%><br>
+    <%= f.label :bridge %><br>
+    <%= f.text_field :bridge%><br>
+    <%= f.label :notes%><br>
+    <%= f.text_field :notes%><br>
+    <%= f.label :count%><br>
+    <%= f.text_field :count%><br>
+    <%= f.hidden_field :user_id, value: current_user.id%>
+    <%= f.hidden_field :song_id, value: @song.id %>
+
+    <%= f.submit%>
+  <%end%>

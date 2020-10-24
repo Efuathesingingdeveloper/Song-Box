@@ -5,14 +5,18 @@ class SessionsController < ApplicationController
   end 
   
   def create
-    if request.env["omniauth.auth"]
-    @user = User.find_by(github_uid: request.env["omniauth.auth"]["uid"])
-    if @user.nil?
-   @user = User.create(email: request.env["omniauth.auth"]["info"]["nickname"], github_uid: request.env["omniauth.auth"]["uid"])
-    end
+     if request.env["omniauth.auth"]
+     if @user = User.find_by(github_uid: request.env["omniauth.auth"]["uid"])
     login(@user)
-    redirect_to songs_path
-  else
+   redirect_to songs_path
+     else
+   @user = User.new(email: request.env["omniauth.auth"]["info"]["nickname"], github_uid: request.env["omniauth.auth"]["uid"], password: SecureRandom.hex)
+    @user.save
+   login(@user)
+   redirect_to songs_path
+  end
+
+ else
    @user = User.find_by(email: params[:email])
    if !@user
     @error =" Account not found"
@@ -24,7 +28,7 @@ class SessionsController < ApplicationController
      else
       login(@user)
       redirect_to songs_path
-      end
+     end
     end 
   end 
 

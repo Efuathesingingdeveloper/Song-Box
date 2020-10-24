@@ -1,4 +1,3 @@
-<%= form_for [@song, @lyric] do |f|%>
 
     <%= f.label :verse1 %><br>
     <%= f.text_field :verse1%><br>
@@ -20,4 +19,4 @@
     <%= f.hidden_field :song_id, value: @song.id %>
 
     <%= f.submit%>
-    <%end%>
+  

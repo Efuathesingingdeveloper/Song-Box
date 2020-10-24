@@ -15,11 +15,11 @@
  <%= @lyric.bridge %>
  <br>
  <%= @lyric.notes %>
+ <br>
+
 
  <%= button_to "Edit Song!", edit_song_lyric_path(@song, @lyric), method: :get %>
- <%= button_to " delete", edit_song_lyric_path(@song, @lyric), method: :destroy %>
-
-
+ <%= button_to "Delete", @song , method: :delete, data: {confirm: "Are you sure you want to delete #{@song.title}"}%>
  
 
     

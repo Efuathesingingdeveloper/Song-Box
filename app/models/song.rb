@@ -10,6 +10,6 @@ class Song < ApplicationRecord
 
     def self.search(search)
       
-      self.where("location LIKE ?", "%#{search}%")
+      self.where("title LIKE ?", "%#{search}%")
   end 
 end
