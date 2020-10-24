@@ -1,7 +1,7 @@
 <h2> Hello Artsist ! The world is your canvas </h2>
 
 <h3>
-<%= link_to " All Songs", song_lyrics_path(@songs)%>
+<%= link_to " All Songs", songs_path(@songs)%>
 <br>
 <%= link_to "My Songs", songs_path %>
   <br>
@@ -16,9 +16,9 @@
     <%= submit_tag("search")%>
     <% end %>
 
-<%= @songs.each do |s| %>
-    <%= s.title%>
-    <br>
-    <%= s.genre %>
-    <br>
-    <% end %>
+
+
+    <% @songs.each do |s| %>
+      <h4><a href="/songs/<%=s.id%>"><%=s.title %></a></h4>
+      
+      <% end %>

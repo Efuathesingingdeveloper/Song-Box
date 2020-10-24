@@ -47,7 +47,7 @@ class LyricsController < ApplicationController
 def edit
   @song = Song.find(params[:song_id])
   @lyric = Lyric.find(params[:id])
-
+  
 end
 
 def update

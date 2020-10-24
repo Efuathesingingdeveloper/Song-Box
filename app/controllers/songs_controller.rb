@@ -67,6 +67,7 @@ end
   def find_song 
     @song = Song.find_by(id: params[:id])
   end 
+  
   def song_params
     params.require(:song).permit(:title, :genre, :user_id, :id)
 end

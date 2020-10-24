@@ -2,10 +2,11 @@
 
     <p>Title: <%= @song.title %></p>
     <p> Genre: <%= @song.genre%></p>
-    <p><%=@song.lyrics%></p>
+   
 
     
     
-    <input type="submit"name=" "value="Delete this song">
+    <%= button_to "Delete", @song , method: :delete, data: {confirm: "Are you sure you want to delete #{@song.title}"}%>
+
     </form>
   
