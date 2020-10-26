@@ -1,24 +1,39 @@
 <h2> Hello Artsist ! The world is your canvas </h2>
 
-<h3>
-<%= link_to " All Songs", songs_path(@songs)%>
-<br>
-<%= link_to "My Songs", songs_path %>
-  <br>
-<%= link_to "Create a New Song!", new_song_path %>
-<br>
-</h3>
-<br>
 
 <%= form_tag("/search", :method => "get") do %>
-    <%= label_tag(:search, "Search:") %>
-    <%= text_field_tag(:search) %>
-    <%= submit_tag("search")%>
+  <%= label_tag(:search, "Search:") %>
+  <%= text_field_tag(:search) %>
+  <%= submit_tag("search")%>
+  <% end %>
+
+
+  
+  <br>
+  <br>
+  <%= button_to " Background Info (parts of a song)",parts_path %> 
+  <br>
+  <br>
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQojCc7qNks2-UKExoMXjMC7xXY2oup3c1HIw&usqp=CAU="250" height="500"">
+
+  
+  <h3>
+ 
+  <br>
+  <%= link_to "My Songs", songs_path %>
+  <br>
+  <%= link_to "Create a New Song!", new_song_path %>
+  <br>
+  
+  </h3>
+  
+  
+  <% @songs.each do |s| %>
+    <h4><a href="/songs/<%=s.id%>"><%=s.title %></a></h4>
+    
     <% end %>
 
 
 
-    <% @songs.each do |s| %>
-      <h4><a href="/songs/<%=s.id%>"><%=s.title %></a></h4>
-      
-      <% end %>
+
+   

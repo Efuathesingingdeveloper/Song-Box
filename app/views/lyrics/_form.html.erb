@@ -1,7 +1,7 @@
 <%= form_for [@song, @lyric] do |f|%>
 
     <%= f.label :verse1 %><br>
-    <%= f.text_field :verse_one%><br>
+    <%= f.text_area :verse_one%><br>
     <%= f.label :verse2 %><br>
     <%= f.text_area :verse2%><br>
     <%= f.label :verse3 %><br>
@@ -19,5 +19,5 @@
     <%= f.hidden_field :user_id, value: current_user.id%>
     <%= f.hidden_field :song_id, value: @song.id %>
 
-    <%= f.submit%>
+    <%= f.submit "Done"%>
     <%end%>
