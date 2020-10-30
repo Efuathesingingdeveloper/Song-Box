@@ -1,23 +1,11 @@
-<%= form_for [@song, @lyric] do |f|%>
+<h2> The lyrics to <%= @song.title %> </h2>
+<%= link_to "Add new lyrics", new_song_lyric_path(@song) %> 
 
-    <%= f.label :verse1 %><br>
-    <%= f.text_area :verse1%><br>
-    <%= f.label :verse2 %><br>
-    <%= f.text_area :verse2%><br>
-    <%= f.label :verse3 %><br>
-    <%= f.text_area :verse3%><br>
-    <%= f.label :verse4 %><br>
-    <%= f.text_area :verse4%><br>
-    <%= f.label :hook %><br>
-    <%= f.text_area :hook%><br>
-    <%= f.label :bridge %><br>
-    <%= f.text_area :bridge%><br>
-    <%= f.label :notes%><br>
-    <%= f.text_area :notes%><br>
-    <%= f.label :count%><br>
-    <%= f.text_area :count%><br>
-    <%= f.hidden_field :user_id, value: current_user.id%>
-    <%= f.hidden_field :song_id, value: @song.id %>
+<% @song.lyrics.each.with_index(1) do |lyric, index| %>
+<h3><%= index %>. <%= lyric.part.category %></h3>
+   <p> <%= lyric.lyrics %></p>
+   <p> <%= lyric.count %>lyrics</p>
+ <%end%>
 
-    <%= f.submit%>
-    <%end%>
+<%= button_to "Delete", @song , method: :delete, data: {confirm: "Are you sure you want to delete #{@song.title}"}%>
+

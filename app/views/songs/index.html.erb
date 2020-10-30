@@ -1,4 +1,4 @@
-<h2> Hello Artsist ! The world is your canvas </h2>
+<h2> Hello Artist ! The world is your canvas </h2>
 
 
 <%= form_tag("/search", :method => "get") do %>
@@ -11,9 +11,11 @@
   
   <br>
   <br>
+
   <%= button_to " Background Info (parts of a song)",parts_path %> 
   <br>
   <br>
+
   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQojCc7qNks2-UKExoMXjMC7xXY2oup3c1HIw&usqp=CAU="250" height="500"">
 
   
@@ -28,10 +30,7 @@
   </h3>
   
   
-  <% @songs.each do |s| %>
-    <h4><a href="/songs/<%=s.id%>"><%=s.title %></a></h4>
-    
-    <% end %>
+  
 
 
 

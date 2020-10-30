@@ -10,28 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_25_174858) do
+ActiveRecord::Schema.define(version: 2020_10_20_163002) do
 
   create_table "lyrics", force: :cascade do |t|
     t.integer "song_id"
     t.integer "part_id"
+    t.text "lyrics"
     t.integer "count"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.text "verse_one"
-    t.text "verse2"
-    t.text "verse3"
-    t.text "verse4"
-    t.text "hook"
-    t.text "bridge"
-    t.text "notes"
   end
 
   create_table "parts", force: :cascade do |t|
-    t.string "type"
-    t.text "verse"
-    t.text "chorus"
-    t.text "bridge"
+    t.string "category"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

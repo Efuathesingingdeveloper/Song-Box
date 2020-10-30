@@ -14,14 +14,14 @@ Rails.application.routes.draw do
    delete '/logout', to: 'sessions#destroy'
    
    get '/auth/github/callback', to: 'sessions#create'
-   
-   resources :songs do
-      resources :lyrics
+
+   resources :parts
+   resources :songs  do
+      resources :lyrics 
+
    end
-   resources :parts do
-      resources :lyrics
-   end 
-   resources :lyrics
+
+
    get '/search', to: 'songs#search'
-end
+   end
 

@@ -2,13 +2,13 @@ class PartsController < ApplicationController
 
     
         def index
-      
+     
         end
       
       
       
         def create
-          
+       
             render :index
         
         end

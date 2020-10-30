@@ -2,9 +2,31 @@ class SongsController < ApplicationController
   before_action :require_login
 
   def index
-    @songs = Song.all
+    
+    @songs = current_user.songs
+   
+  end
+  
+    def new
+      @song = Song.new
+      
+    end
+
+
+
+    def create
+     
+      @song = current_user.songs.build(song_params)
+
+      if @song.save
+      
+        redirect_to new_song_lyric_path(@song)
+      else
+        render :new
+    end
   end
 
+  
   def show
     find_song
     if @song
@@ -15,21 +37,6 @@ class SongsController < ApplicationController
     end
   end
 
-  def new
-    @song = Song.new
-    
-  end
-
-  def create
-    @song = current_user.songs.build(song_params)
-   
-    flag = @song.save
-     if flag
-      redirect_to new_song_lyric_path(@song)
-    else
-      render :new
-  end
-end
 
   def edit
     find_song
@@ -51,6 +58,8 @@ end
       redirect_to edit_song_path(@song)
     end
   end
+
+ 
 
   def destroy
    find_song

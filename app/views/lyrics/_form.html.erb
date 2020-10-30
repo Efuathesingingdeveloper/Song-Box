@@ -1,23 +1,11 @@
-<%= form_for [@song, @lyric] do |f|%>
-
-    <%= f.label :verse1 %><br>
-    <%= f.text_area :verse_one%><br>
-    <%= f.label :verse2 %><br>
-    <%= f.text_area :verse2%><br>
-    <%= f.label :verse3 %><br>
-    <%= f.text_area :verse3%><br>
-    <%= f.label :verse4 %><br>
-    <%= f.text_area :verse4%><br>
-    <%= f.label :hook %><br>
-    <%= f.text_area :hook%><br>
-    <%= f.label :bridge %><br>
-    <%= f.text_area :bridge%><br>
-    <%= f.label :notes%><br>
-    <%= f.text_area :notes%><br>
+<%= form_for [@song, @lyric]  do |f|%>
+<%= f.label :parts %>
+   <div><%= f.collection_select :part_id, Part.all, :id, :category, prompt: true %></div> 
+    <%= f.label :lyrics %><br>
+   <div><%= f.text_area :lyrics%><br></div> 
     <%= f.label :count%><br>
-    <%= f.text_area :count%><br>
+ <div>>%= f.number_field :count%><br></div>
     <%= f.hidden_field :user_id, value: current_user.id%>
     <%= f.hidden_field :song_id, value: @song.id %>
-
     <%= f.submit "Done"%>
     <%end%>
