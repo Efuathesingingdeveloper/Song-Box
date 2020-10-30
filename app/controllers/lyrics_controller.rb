@@ -28,7 +28,8 @@ end
 
 
   def show 
-    
+  get_song
+  @lyric = Lyric.find(params[:id])
 redirect_to song_lyric_path if !@song
   end 
 
@@ -42,7 +43,7 @@ def update
   @song = Song.find(params[:song_id])
   @lyric = Lyric.find(params[:id])
   @lyric.update(lyric_params)
-
+redirect_to song_lyric_path(@song, @lyric)
 end
 
 def destroy

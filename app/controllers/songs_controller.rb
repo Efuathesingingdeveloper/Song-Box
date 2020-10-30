@@ -45,7 +45,7 @@ class SongsController < ApplicationController
   def search
     @songs = Song.search(params[:search])
 
-    render :index
+    render :search
 end
 
   def update

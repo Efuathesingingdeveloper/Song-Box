@@ -5,3 +5,16 @@
     <%= form.submit "Search"%>
   <% end %>
   
+  <%= button_to "Back", songs_path(@song), method: :get %>
+
+
+
+  <% @songs.each do |s| %>
+    <h4><a href="/songs/<%=s.id%>"><%=s.title %></a></h4>
+    <h3><%= link_to s.title, song_path(s) %></h3>
+   
+    <p><%= s.lyrics.count %> lyrics</p>
+    <% end %>
+
+
+

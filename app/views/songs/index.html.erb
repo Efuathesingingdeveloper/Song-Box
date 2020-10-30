@@ -18,7 +18,13 @@
 
   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQojCc7qNks2-UKExoMXjMC7xXY2oup3c1HIw&usqp=CAU="250" height="500"">
 
-  
+  <% @songs.each do |s| %>
+    <h4><a href="/songs/<%=s.id%>"><%=s.title %></a></h4>
+    <h3><%= link_to s.title, song_lyrics_path(s) %></h3>
+   
+    <p><%= s.lyrics.count %> lyrics</p>
+    <% end %>
+
   <h3>
  
   <br>

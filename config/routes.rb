@@ -14,6 +14,8 @@ Rails.application.routes.draw do
    delete '/logout', to: 'sessions#destroy'
    
    get '/auth/github/callback', to: 'sessions#create'
+   
+   get '/search', to: 'songs#search'
 
    resources :parts
    resources :songs  do
@@ -21,7 +23,5 @@ Rails.application.routes.draw do
 
    end
 
-
-   get '/search', to: 'songs#search'
    end
 
