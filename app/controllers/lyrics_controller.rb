@@ -46,9 +46,6 @@ def update
 redirect_to song_lyric_path(@song, @lyric)
 end
 
-def destroy
-end
-    
 
  private
 
