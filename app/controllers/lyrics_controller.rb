@@ -22,8 +22,9 @@ def create
       redirect_to song_lyric_path(@song, @lyric)
     else
       render :new
-    end 
-end 
+  
+  end 
+end
 
 
   def show 
