@@ -4,11 +4,17 @@
 
 
     
-    
-    <p><%= @song.lyrics.count %> lyrics</p>
+
+<% @song.lyrics.each.with_index(1) do |lyric, index| %>
+    <h3><%= index %>. <%= lyric.part.category %></h3>
+       <p> <%= lyric.lyrics %></p>
+       <p><%= lyric.count %> lyrics</p>
+       <%end%>
+
 
 
     <%= button_to "Edit Song!", edit_song_path(@song), method: :get %>
+    <%= button_to "Delete", @song , method: :delete, data: {confirm: "Are you sure you want to delete #{@song.title}"}%>
 
     <%= button_to "Back", songs_path(@song), method: :get %>
 
