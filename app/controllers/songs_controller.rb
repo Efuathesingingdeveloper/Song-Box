@@ -73,6 +73,7 @@ end
 
   
   private
+  
   def find_song 
     @song = Song.find_by(id: params[:id])
   end 

@@ -6,8 +6,7 @@ class LyricsController < ApplicationController
 
  
   def new
-   
-    @song = Song.find_by(id: params[:song_id])
+    get_song
     # redirect_if_request_invalid
       @lyric = Lyric.new
     end
@@ -29,19 +28,19 @@ end
 
   def show 
   get_song
-  @lyric = Lyric.find(params[:id])
+  get_lyrics
 redirect_to song_lyric_path if !@song
   end 
 
 def edit
-  @song = Song.find(params[:song_id])
-  @lyric = Lyric.find(params[:id])
+  get_song
+  get_lyrics
  
 end
 
 def update
-  @song = Song.find(params[:song_id])
-  @lyric = Lyric.find(params[:id])
+  get_song
+  get_lyrics
   @lyric.update(lyric_params)
 redirect_to song_lyric_path(@song, @lyric)
 end
@@ -51,9 +50,11 @@ end
 
  def get_song
   @song = Song.find_by(id: params[:song_id])
-
  end 
 
+ def get_lyrics
+  @lyric = Lyric.find(params[:id])
+ end
 
 def redirect_if_request_invalid
   

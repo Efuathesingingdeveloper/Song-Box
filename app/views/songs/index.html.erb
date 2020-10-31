@@ -16,6 +16,10 @@
   <br>
   <br>
 
+  <%= link_to "Create a New Song!", new_song_path %>
+  <br>
+  <br>
+
   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQojCc7qNks2-UKExoMXjMC7xXY2oup3c1HIw&usqp=CAU="250" height="500"">
 
   <% @songs.each do |s| %>
@@ -27,11 +31,6 @@
 
   <h3>
  
-  <br>
-  <%= link_to "My Songs", songs_path %>
-  <br>
-  <%= link_to "Create a New Song!", new_song_path %>
-  <br>
   
   </h3>
   
