@@ -6,7 +6,8 @@ class SongsController < ApplicationController
     @songs = current_user.songs
    
   end
-  
+
+ 
     def new
       @song = Song.new
       
@@ -46,7 +47,8 @@ class SongsController < ApplicationController
     @songs = Song.search(params[:search])
 
     render :search
-end
+  end
+
 
   def update
     find_song
